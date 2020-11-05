@@ -1,2 +1,2 @@
 # Factorial-api
-Factorial api built in Go
+Factorial api simple web service to test github actions
