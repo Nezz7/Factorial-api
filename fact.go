@@ -1,19 +1,20 @@
 package main
 
 import (
-    "fmt"
-    "log"
+	"fmt"
+	"log"
 	"net/http"
 	"strconv"
 )
-func fact (n int) int {
+
+func fact(n int) int {
 	if n == 0 {
 		return 1
 	}
 	res := 1
 	for i := 2; i <= n; i++ {
 		res *= i
-	} 
+	}
 	return res
 }
 func factHandler(w http.ResponseWriter, r *http.Request) {
@@ -21,12 +22,12 @@ func factHandler(w http.ResponseWriter, r *http.Request) {
 	n, _ := strconv.Atoi(in)
 
 	result := fact(n)
-	fmt.Fprintf(w, "%d ! =  %d", n, result);
+	fmt.Fprintf(w, "%d ! =  %d", n, result)
 }
 
 func main() {
 	http.HandleFunc("/fact", factHandler)
 	fmt.Printf("Starting server at port 8080\n")
 
-    log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
