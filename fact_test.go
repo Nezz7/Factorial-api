@@ -19,5 +19,10 @@ func TestFactorial(t *testing.T){
 		t.Errorf("fact(5) = %d expected 120", res)
 	}
 	
+	res = fact(-120)
+	if res != -1 {
+		t.Errorf("fact(-120) = %d expected -1", res)
+	}
+	
 
 }
