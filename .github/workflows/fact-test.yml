@@ -34,3 +34,6 @@ jobs:
 
     - name: Test
       run: go test -v .
+    
+    - name: BenchMark
+      run : go test -run=. -bench='BenchmarkFactorial' 
