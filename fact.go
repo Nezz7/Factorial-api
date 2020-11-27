@@ -7,7 +7,7 @@ import (
 	"strconv"
 )
 
-func fact(n int) int {
+func fact_it(n int) int {
 	if n < 0 {
 		return -1
 	}
@@ -19,6 +19,18 @@ func fact(n int) int {
 		res *= i
 	}
 	return res
+}
+func fact_rec(n int) int {
+	if n < 0 {
+		return -1
+	}
+	if n == 0 {
+		return 1
+	}
+	return n * fact_rec(n - 1);
+}
+func fact(n int) int {
+	return fact_it(n);
 }
 func factHandler(w http.ResponseWriter, r *http.Request) {
 	in := r.URL.Query().Get("n")
